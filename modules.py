@@ -1,10 +1,8 @@
-import math 
-
-num=int(input("Enter an integer: "))
-
-valor_log=math.log2(num)
-val_piso= math.floor(valor_log)
-val_techo= math.ceil(valor_log)
-print(f"Log base 2 of {num} is: {valor_log}")
-print(f"Floor: {val_piso}")
-print(f"Ceiling: {val_techo}")        
+import os
+import math
+print("Current working directory:", os.getcwd())
+num= int(input("Enter an integer: "))
+log_val = math.log2(num)
+print(f"Log base 2 of {num} is: {log_val}")
+print(f"Floor:", math.floor(log_val))
+print(f"Ceiling:", math.ceil(log_val))    

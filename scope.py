@@ -16,6 +16,3 @@ def get_globals():
     ret=tuple(lst)
     return ret
 
-print(get_globals())       
-set_globals(10, "Hello")
-print(get_globals()) 
