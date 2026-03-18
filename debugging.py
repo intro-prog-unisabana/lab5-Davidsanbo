@@ -1,51 +1,41 @@
-def get_daily_steps():
-    """Return list of daily steps."""
-    steps = input("Enter your daily steps for 7 days separated by spaces: ")
-    step_list = steps.split()
-    step_list = [int(s) for s in step_list]
-    return step_list
+# Función para calcular el total de pasos
+def total_steps(steps):
+    return sum(steps)
 
-def total_steps(nums):
-    """Return total steps."""
-    total = sum(nums)
-    return total
+# Función para calcular el promedio diario (entero)
+def average_steps(steps):
+    return sum(steps) // len(steps)
 
+# Función para encontrar el máximo de pasos
+def max_steps(steps):
+    return max(steps)
 
-def average_steps(total, days=7):
-    """Return average steps as int."""
-    return total // days
+# Función para encontrar el mínimo de pasos
+def min_steps(steps):
+    return min(steps)
 
+# Función para verificar si se alcanzó la meta de 10000 pasos cada día
+def goal_met(steps):
+    results = []
+    for s in steps:
+        results.append(s >= 10000)
+    return results
+# Pedir pasos al usuario
+user_input = input("Enter steps for 7 days separated by spaces:\n")
 
-def max_steps(nums):
-    """Return max steps."""
-    max_val = max(nums)
-    return max_val
+# Convertir a enteros
+steps = list(map(int, user_input.split()))
 
+# Calcular resultados
+total = total_steps(steps)
+average = average_steps(steps)
+highest = max_steps(steps)
+lowest = min_steps(steps)
+goals = goal_met(steps)
 
-def min_steps(nums):
-    """Return min steps."""
-    return min(nums)
-
-
-def goal_check(nums, goal=10000):
-    """Return list of booleans for goal."""
-    result = []
-    for s in nums:
-        if s >= goal:
-            result.append(True)
-        else:
-            result.append(False)
-    return result
-
-
-step_list = get_daily_steps()
-
-total = total_steps(step_list)
-average = average_steps(total)
-highest = max_steps(step_list)
-lowest = min_steps(step_list)
-goal_met = goal_check(step_list)
-
-print("Total steps:", total)
-print("Average daily steps:", average)
-print("Highest steps in a day:", highest)
+# Imprimir resumen
+print(f"Total steps: {total}")
+print(f"Average daily steps: {average}")
+print(f"Highest steps in a day: {highest}")
+print(f"Lowest steps in a day: {lowest}")
+print(f"Goal met each day: {goals}")
